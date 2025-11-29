@@ -21,7 +21,7 @@ in
     pname   = "dwl-salar";
     version = "git-2025-11-25";
     # Keep existing buildInputs and add wlroots (0.19.x)
-    buildInputs = (old.buildInputs or []) ++ [ prev.wlroots ];
+    buildInputs = (old.buildInputs or []) ++ [ prev.wlroots_0_19 ];
 
     src = dwlSrc;
   });
