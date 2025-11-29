@@ -1,0 +1,7 @@
+# modules/flake/home.nix
+{ ... }:
+
+{
+
+}
+

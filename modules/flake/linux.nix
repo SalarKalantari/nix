@@ -1,0 +1,6 @@
+# modules/flake/linux.nix
+{ ... }:
+
+{
+}
+
