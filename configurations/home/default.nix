@@ -13,7 +13,10 @@ in
 
 
   home.username = "salar";
-  home.homeDirectory = "/home/salar";
+  home.homeDirectory = 
+    if pkgs.stdenv.isDarwin
+    then  "/Users/salar"
+    else "/home/salar";
   # Required by Home Manager (separate from system.stateVersion)
   home.stateVersion = "25.05";
 }

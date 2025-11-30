@@ -18,6 +18,12 @@
       inputs.lix.follows = "lix";
     };
 
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+
     # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
