@@ -5,18 +5,6 @@
     # Main Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # Home Manager
-    home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # flake-parts (used internally by nixos-unified.lib.mkFlake)
-    flake-parts.url = "github:hercules-ci/flake-parts";
-
-    # nixos-unified: the brains of the operation
-    nixos-unified.url = "github:srid/nixos-unified";
-
     # Lix main (non-flake tarball)
     lix = {
       url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
@@ -29,6 +17,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.lix.follows = "lix";
     };
+
+    # Home Manager
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # flake-parts (used internally by nixos-unified.lib.mkFlake)
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
+    # nixos-unified: the brains of the operation
+    nixos-unified.url = "github:srid/nixos-unified";
+
   };
 
   # Let nixos-unified handle flake-parts + autowiring of modules/flake/*
