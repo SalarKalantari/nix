@@ -4,17 +4,6 @@
   services.xserver.enable = false;
   programs.xwayland.enable = false;
 
-  services.greetd = {
-    enable = false;
-    settings = {
-      default_session = {
-        # use your own dwl/dwlb package names
-        command = "${pkgs.dwl}/bin/dwl -s 'dwlb -ipc -font monospace:size=11'";
-        user    = "salar";
-      };
-    };
-  };
-
   services.seatd.enable = true;
   hardware.graphics.enable= true;
 
