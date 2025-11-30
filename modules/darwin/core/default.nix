@@ -5,7 +5,7 @@
     ./home-manager.nix
     ./lix.nix
     ./nix.nix
-    ./resolve.nix
+    ./revision.nix
     # later: ./nix.nix ./users.nix ./locale.nix ...
   ];
 }
