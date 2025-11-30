@@ -10,6 +10,7 @@
     ./overlays.nix
     ./dev-tools.nix
     ./home-manager.nix
+    ./revision.nix
   ];
 }
 
