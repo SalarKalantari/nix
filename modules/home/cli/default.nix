@@ -1,7 +1,6 @@
 { ... }:
 {
     imports = [
-    ./mpv.nix
     ./tmux
     ];
   }

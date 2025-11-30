@@ -1,0 +1,8 @@
+{ pkgs, ... }:
+{
+  environment.systemPackages = with pkgs; [
+    google-chrome 
+    firefox
+    qutebrowser
+  ];
+}

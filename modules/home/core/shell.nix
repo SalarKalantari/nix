@@ -1,5 +1,8 @@
 # modules/home/core/shell.nix
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
+let 
+  inherit (lib) mkIf;
+in
 {
   programs.bash.enable = true;
 
@@ -55,11 +58,6 @@
 
       # Optional: make vi-mode feel snappier
       export KEYTIMEOUT=1
-
-      # Auto-start dwl + dwlb on tty1
-      if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = "1" ]; then
-        exec dwl -s "dwlb -ipc -font 'monospace:size=11'"
-      fi
     '';
 
     autosuggestion.enable = true;
@@ -86,7 +84,8 @@
     enableZshIntegration = true;
   };
 
-  home.sessionVariables = {
+
+  home.sessionVariables = mkIf pkgs.stdenv.isLinux {
     EDITOR = "nvim";
     VISUAL = "nvim";
     PAGER = "less";
