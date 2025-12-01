@@ -35,6 +35,7 @@
     foot
     wmenu
     waylock
+    wayidle
   ];
 }
 
