@@ -8,7 +8,7 @@
     ./security.nix
     ./nix.nix
     ./overlays.nix
-    ./dev-tools.nix
+    ./tools.nix
     ./home-manager.nix
     ./revision.nix
   ];
