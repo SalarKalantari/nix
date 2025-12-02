@@ -1,8 +1,8 @@
 { ... }:
 {
   imports = [
-    ./browsers.nix
-    ./terminals.nix
-    ./mpv.nix
+    ./browsers
+    ./terminals
+    ./media
   ];
 }
