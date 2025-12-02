@@ -2,7 +2,10 @@
 {
     environment.systemPackages = with pkgs; [
         clang
+	fzf
+	zoxide
         git
+	direnv
         vim
         wget
         curl
@@ -10,6 +13,11 @@
         neovim
         yazi
         btop
+	eza
+	htop
+	bat
+	fd
+	ripgrep
         nix-prefetch-git
       ];
   }

@@ -100,11 +100,6 @@ in
   };
 
   home.packages = with pkgs; [
-    eza
-    htop
-    bat
-    fd
-    ripgrep
   ];
 }
 
