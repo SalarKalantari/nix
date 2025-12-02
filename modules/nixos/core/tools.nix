@@ -17,6 +17,7 @@
 	htop
 	bat
 	fd
+	jq
 	ripgrep
         nix-prefetch-git
       ];
