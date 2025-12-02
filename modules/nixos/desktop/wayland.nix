@@ -30,6 +30,7 @@
     dwl
     dwlb
     wl-clipboard
+    playerctl
     grim
     slurp
     foot
