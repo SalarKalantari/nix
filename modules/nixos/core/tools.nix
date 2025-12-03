@@ -2,15 +2,15 @@
 {
     environment.systemPackages = with pkgs; [
         clang
+	tree-sitter
+	nodejs
 	fzf
 	zoxide
         git
 	direnv
-        vim
         wget
         curl
         tmux
-        neovim
         yazi
         btop
 	eza
@@ -23,5 +23,6 @@
 	nix-output-monitor
 	nvd
 	lazygit
+	pixi
       ];
   }

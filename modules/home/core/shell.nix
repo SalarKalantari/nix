@@ -67,10 +67,16 @@ in
       ll = "ls -la";
       vim = "nvim";
       gs = "git status";
+      ga = "git add";
+      gaa = "git add -A";
       gc = "git commit";
+      gcm = "git commit -m";
       gp = "git push";
       gpl = "git pull";
-
+      gd = "git diff";
+      gl = "git log --online --graph --decorate";
+      gb = "git branch";
+      gcl = "git clone";
     };
 
   };
