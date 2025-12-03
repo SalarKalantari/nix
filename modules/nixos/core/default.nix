@@ -11,6 +11,7 @@
     ./tools.nix
     ./home-manager.nix
     ./revision.nix
+    ./nh.nix
   ];
 }
 

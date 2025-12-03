@@ -16,6 +16,12 @@ in
 
   # nixpkgs.hostPlatform = "x86_64-linux";
 
+  core.nh = {
+    enable = true;
+    flake = "/home/salar/nix";
+    cleanExtraArgs = "--keep-since 7d --keep 5";
+    };
+
   boot = {
     loader = {
       systemd-boot.enable = true;
