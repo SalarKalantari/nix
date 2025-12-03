@@ -1,7 +1,7 @@
 # modules/home/core/shell.nix
 { pkgs, lib, ... }:
 let 
-  inherit (lib) mkIf;
+  inherit (lib) mkIf mkMerge;
 in
 {
   programs.bash.enable = true;
@@ -85,11 +85,14 @@ in
   };
 
 
-  home.sessionVariables = mkIf pkgs.stdenv.isLinux {
+  home.sessionVariables = mkMerge [
+    {
     EDITOR = "nvim";
     VISUAL = "nvim";
     PAGER = "less";
+    }
 
+    (mkIf pkgs.stdenv.isLinux {
     # Tell everything "we are on Wayland"
     XDG_SESSION_TYPE = "wayland";
     MOZ_ENABLE_WAYLAND = "1";     # Firefox
@@ -97,7 +100,8 @@ in
     QT_QPA_PLATFORM = "wayland";  # Qt apps
     SDL_VIDEODRIVER = "wayland";  # SDL apps (games, etc)
     CLUTTER_BACKEND = "wayland";  # GNOME-ish stuff
-  };
+    })
+  ];
 
   home.packages = with pkgs; [
   ];
