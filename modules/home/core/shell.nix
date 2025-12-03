@@ -74,7 +74,7 @@ in
       gp = "git push";
       gpl = "git pull";
       gd = "git diff";
-      gl = "git log --online --graph --decorate";
+      gl = "git log --oneline --graph --decorate";
       gb = "git branch";
       gcl = "git clone";
     };
