@@ -4,6 +4,7 @@
     ./core
     ./desktop
     ./hardware
+    ./cli
     ./gui
     ];
   }

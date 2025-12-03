@@ -66,6 +66,11 @@ in
     shellAliases = {
       ll = "ls -la";
       vim = "nvim";
+      gs = "git status";
+      gc = "git commit";
+      gp = "git push";
+      gpl = "git pull";
+
     };
 
   };
