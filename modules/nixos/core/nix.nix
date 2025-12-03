@@ -3,7 +3,7 @@
 
 {
   nix = {
-      package = pkgs.lix;
+      # package = pkgs.lix;
       settings = {
           experimental-features = [ "nix-command" "flakes" ];
           trusted-users = [ "root" "salar" ];
