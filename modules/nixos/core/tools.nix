@@ -22,5 +22,6 @@
         nix-prefetch-git
 	nix-output-monitor
 	nvd
+	lazygit
       ];
   }
