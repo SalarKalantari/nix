@@ -40,7 +40,7 @@
       # Theme – LazyVim-ish
       theme = {
         enable = true;
-        name = "tokyonight"; # adjust if nvf expects "tokyonight-nvim"
+        name = "tokyonight"; 
         style = "night";
       };
 
