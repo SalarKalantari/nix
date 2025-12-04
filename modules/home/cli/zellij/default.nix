@@ -2,7 +2,7 @@
 {
   programs.zellij = {
       enable = true;
-      enableZshIntegration = true;
+      # enableZshIntegration = true;
       attachExistingSession = true;
       settings = {
           theme = "tokyo-night-dark";
