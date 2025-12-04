@@ -1,12 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  # You now fully own ~/.config/tmux/tmux.conf
-  home.file."tmux" = {
-    target = ".config/tmux/tmux.conf";
-    source = ./tmux.conf;
-  };
-
   programs.tmux = {
     enable = false;
 
@@ -85,26 +79,6 @@
       set -g allow-passthrough on
       set -ga update-environment TERM
       set -ga update-environment TERM_PROGRAM
-
-      # status bar styling
-      set -g status-justify "left"
-      set -g status "on"
-      set -g status-left-style "none"
-      set -g message-command-style "fg=colour254,bg=colour238"
-      set -g status-right-style "none"
-      set -g pane-active-border-style "fg=colour245"
-      set -g status-style "none,bg=colour235"
-      set -g message-style "fg=colour254,bg=colour238"
-      set -g pane-border-style "fg=colour238"
-      set -g status-right-length "100"
-      set -g status-left-length "100"
-      setw -g window-status-activity-style "none"
-      setw -g window-status-separator ""
-      setw -g window-status-style "none,fg=colour246,bg=colour235"
-      set -g status-left "#[fg=colour235,bg=colour245] #S #[fg=colour245,bg=colour235,nobold,nounderscore,noitalics]"
-      set -g status-right "#[fg=colour238,bg=colour235,nobold,nounderscore,noitalics]#[fg=colour254,bg=colour238] #{pane_title} #[fg=colour245,bg=colour238,nobold,nounderscore,noitalics]#[fg=colour235,bg=colour245] #h "
-      setw -g window-status-format "#[fg=colour246,bg=colour235] #I #[fg=colour246,bg=colour235] #W "
-      setw -g window-status-current-format "#[fg=colour235,bg=colour238,nobold,nounderscore,noitalics]#[fg=colour254,bg=colour238] #I #[fg=colour254,bg=colour238] #W #[fg=colour238,bg=colour235,nobold,nounderscore,noitalics]"
     '';
   };
 }

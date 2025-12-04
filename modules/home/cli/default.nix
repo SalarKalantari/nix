@@ -19,12 +19,15 @@
 { config, lib, pkgs, ... }:
 
 {
+  imports = [
+    ./zellij
+  ];
   # Neovim: ~/.config/nvim -> /home/salar/nix/modules/home/cli/nvim
   home.file.".config/nvim".source =
     config.lib.file.mkOutOfStoreSymlink "/home/salar/nix/modules/home/cli/nvim";
 
   # Tmux: ~/.config/tmux -> /home/salar/nix/modules/home/cli/tmux
-  home.file.".config/tmux".source =
-    config.lib.file.mkOutOfStoreSymlink "/home/salar/nix/modules/home/cli/tmux";
+  # home.file.".config/tmux".source =
+  #   config.lib.file.mkOutOfStoreSymlink "/home/salar/nix/modules/home/cli/tmux";
 }
 
