@@ -36,6 +36,12 @@
     # nixos-unified: the brains of the operation
     nixos-unified.url = "github:srid/nixos-unified";
 
+    # nvf: Neovim config framework
+    nvf = {
+      url = "github:NotAShelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   # Let nixos-unified handle flake-parts + autowiring of modules/flake/*
