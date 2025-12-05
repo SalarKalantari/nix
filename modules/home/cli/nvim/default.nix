@@ -5,6 +5,10 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./behavior
+  ];
+
   programs.nvf = {
     enable = true;
 
