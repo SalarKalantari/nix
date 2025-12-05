@@ -57,6 +57,13 @@
         enable = true;
         extensions.render-markdown-nvim.enable = true;
       };
+
+      zig = {
+        enable = true;
+        lsp.enable = true;
+        dap.enable = true;
+        treesitter.enable = true;
+      };
     };
 
     # Treesitter core behaviour
