@@ -12,6 +12,7 @@
     ./ui.nix
     ./navigation.nix
     ./editing.nix
+    ./assistant
   ];
 
   programs.nvf.enable = false;
