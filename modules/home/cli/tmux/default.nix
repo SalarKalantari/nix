@@ -2,7 +2,7 @@
 
 {
   programs.tmux = {
-    enable = false;
+    enable = true;
 
     # from: set -g default-terminal "screen-256color"
     terminal = "screen-256color";
@@ -21,6 +21,45 @@
 
     # enable mouse
     mouse = true;
+
+    # Automatically spawn a session if trying to attach and none are running
+    newSession = true;
+
+    # Time in milliseconds for which tmux waits after an escape is input
+    escapeTime = 0;
+    
+    # Run the sensible plugin at the top of the configuration
+    sensibleOnTop = true;
+
+
+    # List of tmux plugins to be included at the end of your tmux configuration
+     plugins = with pkgs; [
+      {
+        plugin = tmuxPlugins.resurrect;
+        # extraConfig = "set -g @resurrect-strategy-nvim 'session'";
+      }
+      {
+        plugin = tmuxPlugins.continuum;
+        # extraConfig = ''
+        #   set -g @continuum-restore 'on'
+        #   set -g @continuum-save-interval '60' # minutes
+        # '';
+      }
+      {
+        plugin = tmuxPlugins.tokyo-night-tmux;
+        extraConfig = ''
+          set -g @tokyo-night-tmux_show_datetime 0
+          set -g @tokyo-night-tmux_show_hostname 1
+          set -g @tokyo-night-tmux_show_path 1
+          set -g @tokyo-night-tmux_path_format relative # 'relative' or 'full'
+          set -g @tokyo-night-tmux_theme storm
+        '';
+      }
+    ];
+
+
+
+
 
     # Anything that doesn't have a direct option goes here
     extraConfig = ''
@@ -67,9 +106,6 @@
       bind -r J resize-pane -D 5
       bind -r K resize-pane -U 5
       bind -r L resize-pane -R 5
-
-      # mouse already enabled via option, but harmless to repeat:
-      set -g mouse on
 
       # Middle click to paste from clipboard
       unbind-key MouseDown2Pane

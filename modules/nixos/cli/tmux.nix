@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
     programs.tmux = {
-      enable = true;
+      enable = false;
       keyMode = "vi";
       shortcut = "a";
       terminal = "screen-256color";
@@ -9,16 +9,23 @@
       escapeTime = 0;
       newSession = true;
       historyLimit = 10000;
+
       plugins = with pkgs.tmuxPlugins; [
         sensible
         yank
         resurrect
         continuum
         tokyo-night-tmux
-        ];
+      ];
+
+
       extraConfig = ''
-        # set -g @tokyo-night-tmux_show_datetime 0
-        # set -gset -g @tokyo-night-tmux_show_battery_widget 1
+        # Plugins configgurations 
+        set -g @tokyo-night-tmux_show_datetime 0
+        set -g @tokyo-night-tmux_show_hostname 1
+        set -g @tokyo-night-tmux_show_path 1
+        set -g @tokyo-night-tmux_path_format relative # 'relative' or 'full'
+        set -g @tokyo-night-tmux_theme storm
 
         # lower escape time and pane base index
         set -sg escape-time 1

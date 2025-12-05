@@ -4,6 +4,7 @@
   imports = [
     ./zellij
     ./nvim
+    ./tmux
   ];
 }
 
