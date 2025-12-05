@@ -7,6 +7,9 @@
     # from: set -g default-terminal "screen-256color"
     terminal = "screen-256color";
 
+    # Set the default-shell tmux variable.
+    shell = "${pkgs.zsh}/bin/zsh";
+
     # Prefix is Ctrl-a
     prefix = "C-a";
 
