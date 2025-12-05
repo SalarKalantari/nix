@@ -52,7 +52,7 @@
           set -g @tokyo-night-tmux_show_hostname 1
           set -g @tokyo-night-tmux_show_path 1
           set -g @tokyo-night-tmux_path_format relative # 'relative' or 'full'
-          set -g @tokyo-night-tmux_theme storm
+          set -g @tokyo-night-tmux_theme night
         '';
       }
     ];
