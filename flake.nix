@@ -23,7 +23,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-
     # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -38,18 +37,18 @@
 
     # nvf: Neovim config framework
     nvf = {
-      url = "github:NotAShelf/nvf";
+      url = "github:NotAShelf/nvf/v0.8";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
   };
 
   # Let nixos-unified handle flake-parts + autowiring of modules/flake/*
-  outputs = inputs:
+  outputs =
+    inputs:
     inputs.nixos-unified.lib.mkFlake {
       inherit inputs;
       # this will be passed as `root` to all flake-parts modules
       root = ./.;
     };
 }
-

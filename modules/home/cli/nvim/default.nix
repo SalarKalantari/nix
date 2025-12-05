@@ -4,9 +4,7 @@
   lib,
   pkgs,
   ...
-}:
-
-{
+}: {
   programs.nvf = {
     enable = true;
 
@@ -16,7 +14,7 @@
       viAlias = true;
       vimAlias = true;
 
-      # ----- Core behaviour / "feel" (similar to LazyVim's options.lua) -----
+      # ----- Core behaviour / "feel" (LazyVim-style options.lua) -----
       globals = {
         mapleader = " ";
         maplocalleader = ",";
@@ -25,17 +23,18 @@
       # Short-hand for number + relativenumber
       lineNumberMode = "relNumber";
 
-      # Use system clipboard like LazyVim
+      # Use system clipboard (y/p talk to the system clipboard like LazyVim)
       clipboard = {
         enable = true;
 
-        # Wayland + wl-clipboard (what you’re using with dwl)
+        # Wayland + wl-clipboard (for your dwl setup)
         providers.wl-copy.enable = true;
 
         # Same behaviour as `set clipboard=unnamedplus`
         registers = "unnamedplus";
       };
 
+      # Core editor options tuned close to LazyVim defaults
       options = {
         number = true;
         relativenumber = true;
@@ -52,112 +51,144 @@
         splitright = true;
 
         expandtab = true;
-        shiftwidth = 2;
         tabstop = 2;
         softtabstop = 2;
+        shiftwidth = 2;
 
-        scrolloff = 5;
-        sidescrolloff = 5;
+        # Use global statusline; LazyVim sets this
+        laststatus = 3;
 
-        wrap = false;
+        # Better display for wrapped lines (if you ever enable wrap)
+        breakindent = true;
 
-        # Make cursorline highlight the whole screen line
-        cursorlineopt = "both";
-
+        # Decrease updatetime for CursorHold
         updatetime = 200;
         timeoutlen = 300;
+
+        # Better cursorline behaviour
+        cursorlineopt = "both";
       };
 
-      # Persistent undo
+      # Persistent undo like LazyVim
       undoFile.enable = true;
 
-      # ----- Look & UI (theme, statusline, icons, indent guides…) -----
+      # Enable basic syntax highlighting (on top of treesitter)
+      syntaxHighlighting = true;
+
+      # ----- Look & UI (theme, statusline, dashboard, bufferline, minimap…) -----
+
+      # LazyVim’s default theme is TokyoNight or Catppuccin; we go with TokyoNight.
       theme = {
         enable = true;
-        # LazyVim defaults to TokyoNight / Catppuccin; pick TokyoNight here
         name = "tokyonight";
         style = "moon";
       };
 
+      # Lualine statusline with theme integration
       statusline.lualine = {
         enable = true;
-        theme = "auto";
+        theme = "tokyonight";
       };
 
-      visuals = {
-        # icons everywhere (neo-tree, telescope, etc.)
-        nvim-web-devicons.enable = true;
+      # Startup dashboard (alpha.nvim)
+      dashboard.alpha.enable = true;
 
-        # Rainbow parens
-        rainbow-delimiters.enable = true;
+      # Minimap on the right
+      minimap.codewindow.enable = true;
 
-        # Indent guides, like LazyVim’s indent-blankline setup
-        indent-blankline = {
-          enable = true;
-          # setupOpts = {
-          #   show_trailing_blankline_indent = false;
-          #   show_current_context = true;
-          # };
+      # Bufferline tabline, showing buffers like LazyVim
+      tabline.nvimBufferline = {
+        enable = true;
+        setupOpts.options = {
+          mode = "buffers"; # "buffers" or "tabs"
+          close_icon = "";
+          color_icons = true;
+          indicator.style = "icon"; # "icon", "underline", "none"
         };
+      };
 
-        # Use the new cursorline module name
-        nvim-cursorline.enable = true;
+      # ----- Files / navigation: neo-tree + telescope -----
 
+      filetree.neo-tree = {
+        enable = true;
+        setupOpts = {
+          filesystem = {
+            follow_current_file = {
+              enabled = true;
+            };
+            hijack_netrw_behavior = "open_default";
+          };
+          window = {
+            position = "left"; # or "right" if you prefer
+            width = 30;
+          };
+        };
+      };
+
+      telescope = {
+        enable = true;
+        setupOpts.defaults = {
+          # Use ripgrep from Nix instead of relying on PATH
+          vimgrep_arguments = [
+            "${pkgs.ripgrep}/bin/rg"
+            "--color=never"
+            "--no-heading"
+            "--with-filename"
+            "--line-number"
+            "--column"
+            "--smart-case"
+          ];
+        };
       };
 
       # which-key style popup for <leader> mappings
       binds.whichKey = {
         enable = true;
         setupOpts = {
-          preset = "modern";
+          preset = "modern"; # "classic", "modern", "helix"
           notify = true;
-          win = {
-            border = "rounded";
-          };
+          win.border = "rounded";
         };
       };
 
-      # ----- Files / navigation: neo-tree + telescope -----
-      filetree.neo-tree = {
-        enable = true;
-        # Use plugin defaults; you can extend via setupOpts later
-        setupOpts = { };
-      };
-
-      telescope.enable = true;
-
-      # A few LazyVim-style leader keymaps
+      # A few canonical LazyVim-style leader keymaps
       keymaps = [
         # neo-tree
         {
           key = "<leader>e";
-          mode = [ "n" ];
-          action = "<CMD>Neotree toggle<CR>";
-          desc = "File tree (neo-tree)";
+          mode = ["n"];
+          action = "<CMD>Neotree toggle reveal<CR>";
+          desc = "Explorer Neo-tree (root dir)";
+        }
+        {
+          key = "<leader>E";
+          mode = ["n"];
+          action = "<CMD>Neotree toggle reveal_force_cwd<CR>";
+          desc = "Explorer Neo-tree (cwd)";
         }
 
-        # telescope
+        # Telescope
         {
           key = "<leader>ff";
-          mode = [ "n" ];
+          mode = ["n"];
           action = "<CMD>Telescope find_files<CR>";
           desc = "Find files";
         }
         {
           key = "<leader>fg";
-          mode = [ "n" ];
+          mode = ["n"];
           action = "<CMD>Telescope live_grep<CR>";
-          desc = "Grep (live)";
+          desc = "Live grep";
         }
         {
           key = "<leader>fb";
-          mode = [ "n" ];
+          mode = ["n"];
           action = "<CMD>Telescope buffers<CR>";
           desc = "Buffers";
         }
         {
           key = "<leader>fh";
-          mode = [ "n" ];
+          mode = ["n"];
           action = "<CMD>Telescope help_tags<CR>";
           desc = "Help tags";
         }
@@ -165,41 +196,40 @@
         # basic quality-of-life
         {
           key = "g=";
-          mode = [ "n" ];
+          mode = ["n"];
           action = "m'g g V G=''"; # reindent whole file
           desc = "Reindent buffer";
         }
       ];
 
-      # ----- Editing UX: cmp, snippets, autopairs, comments, surround... -----
-      autocomplete.nvim-cmp.enable = true; # core completion
-      snippets.luasnip.enable = true; # snippet engine used by nvf’s cmp setup
+      # ----- Editing UX: cmp, snippets, comments, autopairs, git, terminal -----
 
-      autopairs.nvim-autopairs.enable = true; # auto close brackets/quotes
-      comments.comment-nvim.enable = true; # gcc / gc motions for comments (Comment.nvim)
+      # Completion and snippets (cmp + luasnip, like LazyVim)
+      autocomplete.nvim-cmp.enable = true;
+      snippets.luasnip.enable = true;
 
-      # Surround (change/add/delete surroundings)
-      mini.surround.enable = true; # mini.surround wrapper module
+      # Comments (gc motions)
+      comments.comment-nvim.enable = true;
 
-      # Motion / hopping around (LazyVim uses flash.nvim; hop is close)
-      utility.motion.hop.enable = true;
+      # Auto-insert closing brackets/braces etc.
+      autopairs.nvim-autopairs.enable = true;
 
       # Integrated terminal like LazyVim’s terminal mappings
       terminal.toggleterm.enable = true;
 
-      # ----- Git integration (gitsigns in the gutter) -----
-      git.gitsigns.enable = true; # signs + hunk actions like LazyVim’s gitsigns setup
+      # Git integration (gitsigns in the gutter)
+      git.gitsigns.enable = true;
+
+      # ----- Notes / TODOs -----
+      notes.todo-comments.enable = true;
 
       # ----- LSP / Treesitter / formatting: all Nix-managed, no mason.nvim -----
-      # nvf wires LSP + TS + format through these modules, using Nixpkgs packages,
-      # not dynamic binaries from mason
-      lsp = {
-        enable = true;
-        formatOnSave = true;
-        # LSP-kind icons in completion/menu similar to LazyVim
-        lspkind.enable = true;
-      };
 
+      # nvf wires LSP + TS + format through these modules, using Nixpkgs packages
+      # (no mason.nvim / dynamic binaries)
+      lsp.enable = true;
+
+      # High-level language toggles
       languages = {
         enableTreesitter = true;
         enableFormat = true;
@@ -209,15 +239,7 @@
           enable = true;
           format = {
             enable = true;
-            type = "nixfmt";
-          };
-          lsp.enable = true;
-          extraDiagnostics = {
-            enable = true;
-            types = [
-              "statix"
-              "deadnix"
-            ];
+            type = ["alejandra" "nixfmt"];
           };
         };
 
@@ -228,7 +250,6 @@
 
         python = {
           enable = true;
-          format.enable = true;
           lsp.enable = true;
         };
 
@@ -242,7 +263,79 @@
           lsp.enable = true;
           dap.enable = true;
         };
+
+        clang = {
+          enable = true;
+          lsp.enable = true;
+        };
+
+        markdown = {
+          enable = true;
+          extensions.render-markdown-nvim.enable = true;
+        };
       };
+
+      # Treesitter core behaviour
+      treesitter = {
+        enable = true;
+        context.enable = true;
+        fold = true;
+        autotagHtml.enable = true;
+      };
+
+      # ----- Rich UI layer: breadcrumbs, modes, visuals, utilities -----
+
+      ui = {
+        # LSP-integrated breadcrumbs (navic) and navbuddy popup
+        breadcrumbs = {
+          enable = true;
+          navbuddy.enable = true;
+
+          # Show breadcrumbs in winbar via lualine (LazyVim-style)
+          lualine.winbar.enable = true;
+        };
+
+        # modes.nvim: big mode indicator, subtle background highlight
+        modes-nvim = {
+          enable = true;
+          setupOpts = {
+            line_opacity.visual = 0.15;
+            setCursorline = true;
+          };
+        };
+      };
+
+      visuals = {
+        # Icons everywhere (neo-tree, telescope, etc.)
+        nvim-web-devicons.enable = true;
+
+        # Rainbow parens
+        rainbow-delimiters.enable = true;
+
+        # Indent guides, like LazyVim’s indent-blankline setup
+        indent-blankline.enable = true;
+
+        # LSP progress / notifications in the corner
+        fidget-nvim.enable = true;
+
+        # Highlight recent changes on undo
+        highlight-undo.enable = true;
+
+        # Cursorline with word highlight
+        nvim-cursorline = {
+          enable = true;
+          setupOpts = {
+            cursorword.enable = true;
+            cursorline.enable = false;
+          };
+        };
+
+        # Scrollbar with diagnostics
+        nvim-scrollbar.enable = true;
+      };
+
+      # Small helper plugin that feels very “LazyVim”
+      utility.multicursors.enable = true;
     };
   };
 }
