@@ -6,7 +6,7 @@
   ...
 }: {
   imports = [
-    ./behavior         
+    ./behavior         # your existing behavior module
     ./lsp
     ./core.nix
     ./ui.nix
@@ -14,6 +14,6 @@
     ./editing.nix
   ];
 
-  programs.nvf.enable = false;
+  programs.nvf.enable = true;
 }
 
