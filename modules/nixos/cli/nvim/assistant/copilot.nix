@@ -3,7 +3,7 @@
 {
   programs.nvf.settings.vim.assistant.copilot = {
     # main switch
-    enable = true;
+    enable = false;
 
     # integrate with nvim-cmp (your LazyVim-like setup)
     cmp.enable = true;
