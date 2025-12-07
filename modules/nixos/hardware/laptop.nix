@@ -25,7 +25,7 @@
   services.thermald.enable = true;      # Intel CPU thermal management
 
   # Will periodically TRIM your SSD (if supported)
-  # services.fstrim.enable = true;
+  services.fstrim.enable = true;
 
   #### Input stack (touchpad + Fn keys events)
   # This enables libinput even though X11 is disabled (you run Wayland/dwl).
