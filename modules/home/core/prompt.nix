@@ -1,9 +1,9 @@
 # modules/home/core/prompt.nix
 { ... }:
 {
-  # programs.starship = {
-  #   enable = true;
-  #   enableZshIntegration = true;
-  # };
+  programs.starship = {
+    enable = false;
+    enableZshIntegration = true;
+  };
 }
 
