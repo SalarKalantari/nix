@@ -18,5 +18,11 @@
     inputs.nixos-unified.flakeModules.autoWire
   ];
 
+    # Your extra flake-parts config
+  perSystem = { self', ... }: {
+    # Make `activate` the default package, so `nix run` works
+    packages.default = self'.packages.activate;
+  };
+
 }
 
