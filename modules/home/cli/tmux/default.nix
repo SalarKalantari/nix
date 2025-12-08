@@ -52,6 +52,9 @@
         plugin = tmuxPlugins.tokyo-night-tmux;
         extraConfig = ''
           set -g @tokyo-night-tmux_show_datetime 0
+          # set -g @tokyo-night-tmux_show_battery_widget 1
+          # set -g @tokyo-night-tmux_battery_low_threshold 21
+          # set -g @tokyo-night-tmux_battery_name "BAT1"
           set -g @tokyo-night-tmux_show_hostname 1
           set -g @tokyo-night-tmux_show_path 1
           set -g @tokyo-night-tmux_path_format relative # 'relative' or 'full'
