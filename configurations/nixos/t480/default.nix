@@ -13,9 +13,10 @@ in
 
     # Upstream T480 profile (CPU, SSD, throttled, etc.)
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
+
   ];
 
-  networking.hostName = "t440";
+  networking.hostName = "t480";
   system.stateVersion = "25.05";
 
   # nixpkgs.hostPlatform = "x86_64-linux";
@@ -32,8 +33,11 @@ in
       efi.canTouchEfiVariables = true;
     };
 
+
   #### CPU microcode (safe + recommended)
   hardware.cpu.intel.updateMicrocode = true;
+
+
     #### Asus hotkeys / backlight modules
     # These are the standard Asus laptop drivers that handle hotkeys/backlight.
       kernelModules = [
@@ -73,6 +77,7 @@ in
   #     (127, 85, 32767)
   #   '';
   # };
+
   #### Optional: brightness helper for Fn keys in dwl/Wayland
   # If you want to bind XF86MonBrightness* to `light` in dwl:
   programs.light.enable = true;

@@ -5,6 +5,13 @@
     # Main Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+
     # Lix main (non-flake tarball)
     lix = {
       url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
