@@ -32,8 +32,6 @@ in
       efi.canTouchEfiVariables = true;
     };
 
-  #### CPU microcode (safe + recommended)
-  hardware.cpu.intel.updateMicrocode = true;
     #### Asus hotkeys / backlight modules
     # These are the standard Asus laptop drivers that handle hotkeys/backlight.
       kernelModules = [
@@ -44,6 +42,9 @@ in
       options thinkpad_acpi fan_control=1 experimental=1
     '';
   };
+
+  #### CPU microcode (safe + recommended)
+  hardware.cpu.intel.updateMicrocode = true;
 
     # TrackPoint config (this is usually the most annoying part on T-series)
   hardware.trackpoint = {

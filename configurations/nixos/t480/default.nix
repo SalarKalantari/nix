@@ -34,8 +34,6 @@ in
     };
 
 
-  #### CPU microcode (safe + recommended)
-  hardware.cpu.intel.updateMicrocode = true;
 
 
     #### Asus hotkeys / backlight modules
@@ -49,6 +47,8 @@ in
     '';
   };
 
+  #### CPU microcode (safe + recommended)
+  hardware.cpu.intel.updateMicrocode = true;
     # TrackPoint config (this is usually the most annoying part on T-series)
   hardware.trackpoint = {
     enable        = true;      # turn on /sys tweaks :contentReference[oaicite:3]{index=3}
