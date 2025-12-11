@@ -5,10 +5,14 @@ let
 in
 {
   imports = [
+    # Machine-specific disk / filesystems
     ./hardware-configuration.nix
-    # ../../../modules/nixos
+
+    # Your shared dendritic stack: core + hardware + desktop + cli + gui
     self.nixosModules.default
 
+    # Upstream T480 profile (CPU, SSD, throttled, etc.)
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
   ];
 
   networking.hostName = "n56jr";
@@ -36,7 +40,13 @@ in
         "asus_nb_wmi"  # only if present in your kernel
       ];
   };
+  #### CPU microcode (safe + recommended)
+  hardware.cpu.intel.updateMicrocode = true;
 
+
+  #### Optional: brightness helper for Fn keys in dwl/Wayland
+  # If you want to bind XF86MonBrightness* to `light` in dwl:
+  programs.light.enable = true;
 
 }
 
