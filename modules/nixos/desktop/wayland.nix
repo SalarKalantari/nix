@@ -7,6 +7,9 @@
   services.seatd.enable = true;
   hardware.graphics.enable= true;
 
+  # Explicit, even though already in hardware/laptop.nix:
+  services.libinput.enable = true;
+
   # Portals for Wayland apps (screen share, file dialogs, etc.)
   xdg.portal = {
     enable = true;
@@ -27,6 +30,7 @@
 
 
   environment.systemPackages = with pkgs; [
+    libinput
     dwl
     dwlb
     wl-clipboard
