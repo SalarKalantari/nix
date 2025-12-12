@@ -3,5 +3,6 @@
 {
     imports = [
      ./browsers
+     ./editors
     ];
   }
