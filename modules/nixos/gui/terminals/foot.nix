@@ -6,7 +6,7 @@
     settings = {
       main = {
         term = "foot";
-        font = "monospace:size=10";
+        font = "monospace:size=9";
         dpi-aware = "yes";
       };
       mouse = {
