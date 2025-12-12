@@ -41,6 +41,7 @@
   #### Input devices / Bluetooth / misc ########################################
 
   # Bluetooth (T440’s Intel BT works fine with this) 
+  hardware.enableRedistributableFirmware = true;
   hardware.bluetooth.enable = true;
   services.blueman.enable   = true;  # if you want a simple tray GUI
 
