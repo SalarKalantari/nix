@@ -6,6 +6,7 @@
     ./nvim
     ./tmux
     ./codex
+    ./gemini
   ];
 }
 
