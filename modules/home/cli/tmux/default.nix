@@ -26,7 +26,7 @@
     mouse = true;
 
     # Automatically spawn a session if trying to attach and none are running
-    newSession = true;
+    newSession = false;
 
     # Time in milliseconds for which tmux waits after an escape is input
     escapeTime = 0;
