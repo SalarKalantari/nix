@@ -13,8 +13,8 @@
             {
               criteria = "ASUSTek COMPUTER INC PA279CRV T3LMSB000149";
               status = "enable";
-              mode = "2560x1440";
-              scale = 1.0;
+              mode = "3840x2160";
+              scale = 1.5;
               position = "0,0";
             }
             {
