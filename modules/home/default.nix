@@ -8,6 +8,7 @@ in
     ./core
     ./cli
     ./gui
+    ./desktop
     flake.inputs.nvf.homeManagerModules.default
     ];
   }
