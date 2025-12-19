@@ -30,6 +30,7 @@
 
 
   environment.systemPackages = with pkgs; [
+    wlr-randr
     libinput
     dwl
     dwlb

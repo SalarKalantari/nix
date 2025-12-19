@@ -31,9 +31,13 @@
   # This enables libinput even though X11 is disabled (you run Wayland/dwl).
   services.libinput.enable = true;
 
+
+  services.hardware.bolt.enable = true;
+
   #### Tools for brightness / volume keys (used from dwl keybindings)
   environment.systemPackages = with pkgs; [
     brightnessctl   # control /sys/class/backlight/*
+    bolt
     # pamixer         # (optional) volume control from the terminal
     # wireplumber
     # xbacklight

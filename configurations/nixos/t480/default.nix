@@ -34,6 +34,9 @@ in
     };
 
 
+    kernelParams = [
+      "i915.enable_dp_mst=1"
+    ];
 
 
     #### Asus hotkeys / backlight modules

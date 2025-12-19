@@ -1,6 +1,10 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    pciutils
+    alsa-utils
+    bolt
+    pavucontrol
     clang
     tree-sitter
     lua-language-server
