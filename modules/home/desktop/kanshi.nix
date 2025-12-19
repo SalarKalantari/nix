@@ -2,7 +2,7 @@
 { ... }:
 {
   services.kanshi = {
-    enable = false;
+    enable = true;
 
     # NEW format (replaces `profiles = { ... }`)
     settings = [
