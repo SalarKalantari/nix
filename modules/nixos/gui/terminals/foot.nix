@@ -6,8 +6,8 @@
     settings = {
       main = {
         term = "foot";
-        font = "monospace:size=8";
-        dpi-aware = "yes";
+        font = "JetBrainsMono Nerd Font:size=12";
+        dpi-aware = "no";
       };
       mouse = {
         hide-when-typing = "yes";

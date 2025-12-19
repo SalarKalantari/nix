@@ -5,8 +5,8 @@ let
   dwlSrc = prev.fetchFromGitHub {
     owner = "SalarKalantari";
     repo  = "dwl";
-    rev   = "ddb40e93452e341bcf65184309e25722217f6ef9";
-    hash  = "sha256-iKjAxgUOet0rfT43PJQodqvAOXK73yPTTJ40ZHMpHyw=";
+    rev   = "717e3b33e767470627619d5e068f3cb75cd1d2f1";
+    hash  = "sha256-HnbwRGgkb4S7lTweQ2MvgDKWm1HZsCGxT7PvYJa4CJY=";
   };
 
   dwlbSrc = prev.fetchFromGitHub {
