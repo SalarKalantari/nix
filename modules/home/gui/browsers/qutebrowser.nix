@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs.qutebrowser = {
     enable = true;
@@ -8,5 +8,6 @@
         darkmode.enabled = true;
       };
     };
+    # package = pkgs.qutebrowser.override { enableWideVine = true; };
   };
 }
