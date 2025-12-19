@@ -105,6 +105,7 @@ in
 
     (mkIf pkgs.stdenv.isLinux {
     # Tell everything "we are on Wayland"
+    WLR_RENDER_NO_EXPLICIT_SYNC = "1";
     XDG_SESSION_TYPE = "wayland";
     MOZ_ENABLE_WAYLAND = "1";     # Firefox
     NIXOS_OZONE_WL = "1";         # Chromium / Chrome / Brave / Electron
