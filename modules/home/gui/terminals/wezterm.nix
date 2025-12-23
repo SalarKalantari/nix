@@ -14,13 +14,13 @@
 
       -- Font
       config.font = wezterm.font({ family = "JetBrainsMono Nerd Font", weight = "Regular" })
-      config.font_size = 12.0
+      config.font_size = 16.0
 
       -- Colour scheme
       config.color_scheme = "Tokyo Night"
 
       -- Remove close / minimize / fullscreen buttons
-      -- config.window_decorations = "RESIZE"
+      config.window_decorations = "RESIZE"
       -- or: "RESIZE | TITLE"
 
       -- Allow moving the window by dragging anywhere on the tab bar
