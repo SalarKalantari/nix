@@ -3,10 +3,21 @@
   programs.gemini-cli = {
     enable = true;
     settings = {
-      theme = "Default";
-      vimMode = true;
+      ui = {
+        theme = "Default";
+      };
+      general = {
+        vimMode = true;
+      };
       preferredEdittor = "nvim";
-      autoAccept =  true;
+      tools = {
+        autoAccept =  true;
+      };
+      security = {
+        auth = {
+          selectedType = "oauth-personal";
+        };
+      };
     };
   };
 }
