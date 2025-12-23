@@ -24,7 +24,7 @@ in
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   # nix-daemon etc – this is standard nix-darwin config
-  services.nix-daemon.enable = true;
+  # services.nix-daemon.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   users.users.salar = {
