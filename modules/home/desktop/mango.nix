@@ -266,11 +266,11 @@
       # Laptop display: 1080p, 60Hz, no rotation
       monitorrule=eDP-1,0.55,1,tile,0,1,0,720,1920,1080,60
 
-      # External monitor
+      # External HDMI monitors
       monitorrule=HDMI-A-1,0.60,1,tile,0,1.5,1920,0,3840,2160,30
       monitorrule=HDMI-A-2,0.60,1,tile,0,1.5,1920,0,3840,2160,30
 
-      # External monitor
+      # External USB-C monitors
       monitorrule=DP-3,0.60,1,tile,0,1.5,-1920,0,3840,2160,60
       monitorrule=DP-4,0.60,1,tile,0,1.5,-1920,0,3840,2160,60
 
