@@ -149,15 +149,15 @@
       # mod keys name: super,ctrl,alt,shift,none
 
       # reload config
-      bind=SUPER+SHIFT,r,reload_config
+      bind=SUPER,r,reload_config
 
       # menu and terminal
-      bind=SUPER,space,spawn,wmenu-run
-      bind=SUPER,Return,spawn,foot
+      bind=ALT,space,spawn,wmenu-run
+      bind=ALT,Return,spawn,foot
 
       # exit
       bind=SUPER+SHIFT,q,quit
-      bind=SUPER,q,killclient,
+      bind=ALT,q,killclient,
 
       # switch window focus
       bind=SUPER,Tab,focusstack,next
