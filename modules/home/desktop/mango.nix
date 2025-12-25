@@ -97,7 +97,9 @@
       repeat_rate=25
       repeat_delay=600
       numlockon=0
-      xkb_rules_layout=us
+      xkb_rules_layout=us,ir
+      xkb_rules_options=caps:escape 
+      #,grp:alt_shift_toggle
 
       # Trackpad
       # need relogin to make it apply
@@ -274,9 +276,6 @@
       monitorrule=DP-3,0.60,1,tile,0,1.5,-1920,0,3840,2160,60
       monitorrule=DP-4,0.60,1,tile,0,1.5,-1920,0,3840,2160,60
 
-      xkb_rules_layout=us,ir
-      xkb_rules_options=caps:escape 
-      #,grp:alt_shift_toggle
 
 
         '';
