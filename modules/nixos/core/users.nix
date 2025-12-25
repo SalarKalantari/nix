@@ -5,12 +5,12 @@
   programs.zsh = {
     enable = true;
 
-    interactiveShellInit = ''
-      # Auto-start dwl + dwlb on tty1
-      if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = "1" ]; then
-        exec dwl -s "dwlb -ipc -font 'monospace:size=11'"
-      fi
-    '';
+    # interactiveShellInit = ''
+    #   # Auto-start dwl + dwlb on tty1
+    #   if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = "1" ]; then
+    #     exec dwl -s "dwlb -ipc -font 'monospace:size=11'"
+    #   fi
+    # '';
   };
 
   # --- Users & groups ---

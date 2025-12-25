@@ -1,0 +1,6 @@
+{ ... }:
+{
+  programs.mango = {
+    enable = true;
+    };
+  }

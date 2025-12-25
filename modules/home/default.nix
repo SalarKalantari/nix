@@ -10,5 +10,6 @@ in
     ./gui
     ./desktop
     flake.inputs.nvf.homeManagerModules.default
+    flake.inputs.mango.hmModules.mango
     ];
   }
