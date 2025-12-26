@@ -47,17 +47,17 @@
         };
 
         "cpu" = {
-          "interval" = 2;
+          "interval" = 1;
           "format" = "󰍛 {usage}%";
         };
 
         "memory" = {
-          "interval" = 2;
+          "interval" = 1;
           "format" = "󰘚 {used:0.1f}G/{total:0.0f}G ({percentage}%)";
         };
 
         "disk" = {
-          "interval" = 30;
+          "interval" = 60;
           "path" = "/";
           "format" = "󰋊 {free}";
         };
