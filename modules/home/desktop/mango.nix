@@ -345,6 +345,7 @@
         '';
       autostart_sh = ''
         # see autostart.sh
+        waybar
         # Note: here no need to add shebang
       '';
     };
