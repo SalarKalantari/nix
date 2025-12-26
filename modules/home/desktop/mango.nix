@@ -98,8 +98,11 @@
       repeat_delay=600
       numlockon=0
       xkb_rules_layout=us,ir
-      xkb_rules_options=caps:escape 
-      #,grp:alt_shift_toggle
+      xkb_rules_options=caps:escape
+      #,grp:esc_toggle
+      # Press Escape to toggle us <-> ir
+      bind=NONE,Escape,switch_keyboard_layout,
+
 
       # Trackpad
       # need relogin to make it apply
@@ -247,6 +250,32 @@
       bind=CTRL+ALT,Left,resizewin,-50,+0
       bind=CTRL+ALT,Right,resizewin,+50,+0
 
+      #
+      bind=none,XF86AudioRaiseVolume,spawn,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+      bind=none,XF86AudioLowerVolume,spawn,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+      bind=none,XF86AudioMute,spawn,wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+
+      bind=none,XF86MonBrightnessUp,spawn,brightnessctl set +10%
+      bind=none,XF86MonBrightnessDown,spawn,brightnessctl set 10%-
+
+
+      bind=none,XF86AudioPlay,spawn,playerctl play-pause
+      bind=none,XF86AudioStop,spawn,playerctl stop
+      bind=none,XF86AudioNext,spawn,playerctl next
+      bind=none,XF86AudioPrev,spawn,playerctl previous
+
+      bind=none,Print,spawn,grim ~/Pictures/screenshot-$(date +%s).png
+      bind=ALT+SHIFT,Print,spawn,slurp | grim ~/Pictures/screenshot-$(date +%s).png
+
+      bind=none,XF86ScreenSaver,spawn,waylock
+
+
+      bind=none,XF86Bluetooth,spawn,rfkill toggle bluetooth
+      bind=none,XF86WLAN,spawn,rfkill toggle wifi
+      bind=none,XF86TouchpadToggle,spawn,toggle-touchpad
+
+
       # Mouse Button Bindings
       # NONE mode key only work in ov mode
       mousebind=SUPER,btn_left,moveresize,curmove
@@ -254,6 +283,12 @@
       mousebind=SUPER,btn_right,moveresize,curresize
       mousebind=NONE,btn_left,toggleoverview,1
       mousebind=NONE,btn_right,killclient,0
+
+      # 3-finger swipe to move focus
+      gesturebind=none,left,3,focusdir,left
+      gesturebind=none,right,3,focusdir,right
+      # 4-finger swipe to switch workspace
+      gesturebind=none,up,4,toggleoverview
 
       # Axis Bindings
       axisbind=SUPER,UP,viewtoleft_have_client
