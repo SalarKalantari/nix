@@ -172,7 +172,8 @@
       bordercolor=0x292e42ff
 
       # Focused window glow
-      focuscolor=0x7aa2f7ff
+      # focuscolor=0x7aa2f7ff
+      focuscolor=0x5f7fd8ff
 
       # Maximized window indicator
       maximizescreencolor=0x9ece6aff
