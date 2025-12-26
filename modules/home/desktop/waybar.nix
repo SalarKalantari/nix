@@ -18,6 +18,100 @@
           "ext/workspaces"
           "dwl/window"
         ];
+        modules-center = [
+          "clock"
+        ];
+
+        modules-right = [
+          "network#ip"
+          "pulseaudio"
+          "disk"
+          "memory"
+          "cpu"
+          "temperature"
+          "battery#bat0"
+          "battery#bat1"
+        ];
+
+        "temperature" = {
+          # // Option A (usually easiest): pick the right thermal zone
+          "thermal-zone" = 0;
+
+          # // Option B (more explicit): uncomment and set a real path
+          # // "hwmon-path" = "/sys/class/hwmon/hwmon2/temp1_input";
+
+          "interval" = 5;
+          "critical-threshold" = 85;
+          "format" = " {temperatureC}°C";
+          "format-critical" = " {temperatureC}°C";
+        };
+
+        "cpu" = {
+          "interval" = 2;
+          "format" = "󰍛 {usage}%";
+        };
+
+        "memory" = {
+          "interval" = 2;
+          "format" = "󰘚 {used:0.1f}G/{total:0.0f}G ({percentage}%)";
+        };
+
+        "disk" = {
+          "interval" = 30;
+          "path" = "/";
+          "format" = "󰋊 {free}";
+        };
+
+        "network#ip" = {
+          "family" = "ipv4";
+          "format-wifi" = " {ipaddr}";
+          "format-ethernet" = "󰈀 {ipaddr}";
+          "format-disconnected" = " down";
+          "tooltip-format" = "{ifname}\n{ipaddr}/{cidr}";
+        };
+
+        "network#speed" = {
+          "interval" = 1;
+          "format-wifi" = "↑ {bandwidthUpBits:>7} ↓ {bandwidthDownBits:>7}";
+          "format-ethernet" = "↑ {bandwidthUpBits:>7} ↓ {bandwidthDownBits:>7}";
+          "format-disconnected" = "";
+        };
+
+
+        "battery#bat0" = {
+          "bat" = "BAT0";
+          "interval" = 30;
+          "states" = { "warning" = 30; "critical" = 15; };
+          "format" = "0 {capacity:>3}%";
+          "format-charging" = "0 {capacity:>3}%";
+          "format-plugged" = "0 {capacity:>3}%";
+        };
+
+        
+        "battery#bat1" = {
+          "bat" = "BAT1";
+          "interval" = 30;
+          "states" = { "warning" = 30; "critical" = 15; };
+          "format" = "1 {capacity:>3}%";
+          "format-charging" = "1 {capacity:>3}%";
+          "format-plugged" = "1 {capacity:>3}%";
+        };
+
+        
+        "pulseaudio" = {
+          "format" = " {volume}%";
+          "format-muted" = "󰝟 muted";
+          "scroll-step" = 5;
+        };
+
+        
+
+        "clock" = {
+          "format" = "{:%a %d-%b %H:%M}";
+          "tooltip-format" = "<big>{:%H %M}</big>\n<tt>{calendar}</tt>";
+        };
+
+
         "ext/workspaces" = {
           format = "{icon}";
           ignore-hidden = true;
@@ -31,6 +125,8 @@
         };
       };
     };
+
+
     style = ''
       /* TokyoNight Night-ish palette */
       @define-color bg        #1a1b26;
@@ -50,7 +146,7 @@
         border-radius: 10px;
         min-height: 0;
         font-family: "JetBrainsMono Nerd Font";
-        font-size: 12px;
+        font-size: 12.5px;
       }
 
       window#waybar {
@@ -121,6 +217,32 @@
         box-shadow: 0 0 18px alpha(@red, 0.25);
       }
 
+      #clock, #battery, #temperature, #cpu, #memory, #disk, #network, pulseaudio {
+        padding: 2px 6px;
+        background: alpha(@bg2, 0.75);
+        border: 1px solid alpha(@fg, 0.08);
+      }
+
+      #clock {
+        border-color: alpha(@purple, 0.25);
+        color: @fg
+      }
+
+      #temperature { border-color: alpha(@orange, 0.25); }
+      #temperature.critical { border-color: alpha(@red, 0.55); color: @red; }
+
+      #cpu    { border-color: alpha(@blue, 0.25); }
+      #memory { border-color: alpha(@cyan, 0.25); }
+      #disk   { border-color: alpha(@green, 0.25); }
+
+      #network { border-color: alpha(@blue, 0.25); min-width: 120px; }
+
+      #pulseaudio { border-color: alpha(@purple, 0.25); }
+      #pulseaudio.muted { color: alpha(@fg2, 0.7); }
+
+      #battery.warning  { color: @yellow; }
+      #battery.critical { color: @red; }
+      #battery.charging { color: @green; }
 
     '';
   };
