@@ -340,13 +340,10 @@
       monitorrule=DP-3,0.60,1,tile,0,1.5,-2560,0,3840,2160,60
       monitorrule=DP-4,0.60,1,tile,0,1.5,-2560,0,3840,2160,60
 
+    '';
 
-
-        '';
-      autostart_sh = ''
-        # see autostart.sh
-        waybar
-        # Note: here no need to add shebang
-      '';
+    autostart_sh = ''
+      exec-once=waybar
+    '';
     };
   }
