@@ -99,7 +99,7 @@
       numlockon=0
       xkb_rules_layout=us,ir
       xkb_rules_options=caps:escape
-      #,grp:esc_toggle
+      # ,grp:esc_toggle
       # Press Escape to toggle us <-> ir
       bind=NONE,Escape,switch_keyboard_layout,
 
