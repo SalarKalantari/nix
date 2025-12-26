@@ -127,7 +127,7 @@
       gappov=10
       scratchpad_width_ratio=0.8
       scratchpad_height_ratio=0.9
-      borderpx=2
+      borderpx=1
       # rootcolor=0x201b14ff
       # bordercolor=0x444444ff
       # focuscolor=0xc9b890ff
