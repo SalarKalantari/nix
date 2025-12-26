@@ -6,7 +6,7 @@
       mainBar = {
         layer = "top";
         position = "top";
-        height = 30;
+        height = 32;
         output = [
           "eDP-1"
           "HDMI-A-1"
@@ -27,6 +27,7 @@
         };
         "dwl/window" =  {
           format = "[{layout}] {title}";
+          swap-icon-label = false;
         };
       };
     };
@@ -46,10 +47,10 @@
 
       * {
         border: none;
-        border-radius: 12px;
+        border-radius: 10px;
         min-height: 0;
         font-family: "JetBrainsMono Nerd Font";
-        font-size: 12.5px;
+        font-size: 12px;
       }
 
       window#waybar {
@@ -58,8 +59,8 @@
       }
 
       #waybar > box {
-        margin: 8px 10px 0 10px;
-        padding: 6px 8px;
+        margin: 2px 6px 0 6px;
+        padding: 2px 6px;
         background: alpha(@bg, 0.88);
         border: 1px solid alpha(@blue, 0.20);
         box-shadow: 0 10px 30px alpha(#000000, 0.35);
@@ -70,6 +71,57 @@
       .modules-right > widget {
         margin: 0 4px;
       }
+
+      /* --- Workspaces (ext/workspaces) --- */
+      #workspaces {
+        padding: 0 2px;
+      }
+
+      #workspaces button {
+        padding: 0 6px;
+        margin: 0 2px;
+        color: @fg2;
+        background: transparent;
+
+        border-radius: 10px;
+        border: 1px solid transparent;
+
+        transition: all 120ms ease-in-out;
+      }
+
+      #workspaces button:hover {
+        color: @fg;
+        background: alpha(@bg2, 0.85);
+        border-color: alpha(@blue, 0.25);
+      }
+
+      /* Active workspace glow (some modules use .active, some use .focused) */
+      #workspaces button.active,
+      #workspaces button.focused {
+        color: @fg;
+        background: alpha(@bg2, 0.92);
+        border-color: alpha(@blue, 0.55);
+
+        text-shadow: 0 0 10px alpha(@blue, 0.55);
+
+        box-shadow:
+          0 0 0 1px alpha(@blue, 0.35),
+          0 0 12px alpha(@blue, 0.35),
+          0 0 24px alpha(@blue, 0.18);
+      }
+
+      #workspaces button.hidden {
+        opacity: 0.35;
+      }
+
+      #workspaces button.urgent {
+        color: @bg;
+        background: alpha(@red, 0.95);
+        border-color: alpha(@red, 0.70);
+        box-shadow: 0 0 18px alpha(@red, 0.25);
+      }
+
+
     '';
   };
 }
