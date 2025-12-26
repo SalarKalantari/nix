@@ -137,32 +137,6 @@
       # globalcolor=0xb153a7ff
       # overlaycolor=0x14a57cff
 
-      # # Tokyo Night Storm
-      #
-      # # Background of the compositor
-      # rootcolor=0x1f2335ff
-      #
-      # # Inactive window borders
-      # bordercolor=0x3b4261ff
-      #
-      # # Focused window border
-      # focuscolor=0x7aa2f7ff
-      #
-      # # Maximized window indicator
-      # maximizescreencolor=0x9ece6aff
-      #
-      # # Urgent window (alerts)
-      # urgentcolor=0xf7768eff
-      #
-      # # Scratchpad windows
-      # scratchpadcolor=0x7dcfffff
-      #
-      # # Global accents (status, UI hints)
-      # globalcolor=0xbb9af7ff
-      #
-      # # Overlays (menus, popups, effects)
-      # overlaycolor=0x9d7cd8ff
-
       # Tokyo Night - Night (OLED / ultra dark)
 
       # Compositor background
