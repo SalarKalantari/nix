@@ -38,7 +38,7 @@
           "thermal-zone" = 0;
 
           # // Option B (more explicit): uncomment and set a real path
-          # // "hwmon-path" = "/sys/class/hwmon/hwmon2/temp1_input";
+          # "hwmon-path" = "/sys/class/hwmon/hwmon2/temp1_input";
 
           "interval" = 5;
           "critical-threshold" = 85;
@@ -107,7 +107,9 @@
         
 
         "clock" = {
-          "format" = "{:%a %d-%b %H:%M}";
+          "interval" = 1;
+          # "format" = "{:%a %d-%b %H:%M}";
+          "format" = "{:%a %d-%b %T}";
           "tooltip-format" = "<big>{:%H %M}</big>\n<tt>{calendar}</tt>";
         };
 
@@ -217,7 +219,7 @@
         box-shadow: 0 0 18px alpha(@red, 0.25);
       }
 
-      #clock, #battery, #temperature, #cpu, #memory, #disk, #network, pulseaudio {
+      #clock, #battery, #temperature, #cpu, #memory, #disk, #network, #pulseaudio {
         padding: 2px 6px;
         background: alpha(@bg2, 0.75);
         border: 1px solid alpha(@fg, 0.08);
