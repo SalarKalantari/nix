@@ -16,6 +16,7 @@
         lines = 5000;
       };
     };
+    theme = "tokyonight-night";
   };
 
 

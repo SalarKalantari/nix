@@ -128,14 +128,68 @@
       scratchpad_width_ratio=0.8
       scratchpad_height_ratio=0.9
       borderpx=4
-      rootcolor=0x201b14ff
-      bordercolor=0x444444ff
-      focuscolor=0xc9b890ff
-      maximizescreencolor=0x89aa61ff
-      urgentcolor=0xad401fff
-      scratchpadcolor=0x516c93ff
-      globalcolor=0xb153a7ff
-      overlaycolor=0x14a57cff
+      # rootcolor=0x201b14ff
+      # bordercolor=0x444444ff
+      # focuscolor=0xc9b890ff
+      # maximizescreencolor=0x89aa61ff
+      # urgentcolor=0xad401fff
+      # scratchpadcolor=0x516c93ff
+      # globalcolor=0xb153a7ff
+      # overlaycolor=0x14a57cff
+
+      # # Tokyo Night Storm
+      #
+      # # Background of the compositor
+      # rootcolor=0x1f2335ff
+      #
+      # # Inactive window borders
+      # bordercolor=0x3b4261ff
+      #
+      # # Focused window border
+      # focuscolor=0x7aa2f7ff
+      #
+      # # Maximized window indicator
+      # maximizescreencolor=0x9ece6aff
+      #
+      # # Urgent window (alerts)
+      # urgentcolor=0xf7768eff
+      #
+      # # Scratchpad windows
+      # scratchpadcolor=0x7dcfffff
+      #
+      # # Global accents (status, UI hints)
+      # globalcolor=0xbb9af7ff
+      #
+      # # Overlays (menus, popups, effects)
+      # overlaycolor=0x9d7cd8ff
+
+      # Tokyo Night - Night (OLED / ultra dark)
+
+      # Compositor background
+      rootcolor=0x1a1b26ff
+
+      # Inactive window borders
+      bordercolor=0x292e42ff
+
+      # Focused window glow
+      focuscolor=0x7aa2f7ff
+
+      # Maximized window indicator
+      maximizescreencolor=0x9ece6aff
+
+      # Urgent window
+      urgentcolor=0xf7768eff
+
+      # Scratchpad windows
+      scratchpadcolor=0x7dcfffff
+
+      # Global accents (UI highlights)
+      globalcolor=0xbb9af7ff
+
+      # Overlays, menus, effects
+      overlaycolor=0x9d7cd8ff
+
+
 
       # layout support:
       # tile,scroller,grid,deck,monocle,center_tile,vertical_tile,vertical_scroller
