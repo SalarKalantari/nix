@@ -340,7 +340,11 @@
       monitorrule=DP-3,0.60,1,tile,0,1.5,-2560,0,3840,2160,60
       monitorrule=DP-4,0.60,1,tile,0,1.5,-2560,0,3840,2160,60
 
-      exec-once=waybar
+      # Switch Bindings (Lid)
+      switchbind=fold,spwan,waylock
+      switchbind=unfold,spawn,wlr-dpms on
+
+      exec-once=dbus-run-session waybar
     '';
 
     autostart_sh = ''
