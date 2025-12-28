@@ -341,7 +341,7 @@
       monitorrule=DP-4,0.60,1,tile,0,1.5,-2560,0,3840,2160,60
 
       # Switch Bindings (Lid)
-      switchbind=fold,spwan,waylock
+      switchbind=fold,spawn,waylock
       switchbind=unfold,spawn,wlr-dpms on
 
       exec-once=dbus-run-session waybar
