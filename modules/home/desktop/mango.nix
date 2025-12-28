@@ -279,7 +279,7 @@
       bind=CTRL+ALT,Left,resizewin,-50,+0
       bind=CTRL+ALT,Right,resizewin,+50,+0
 
-      #
+      
       bind=none,XF86AudioRaiseVolume,spawn,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
       bind=none,XF86AudioLowerVolume,spawn,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
       bind=none,XF86AudioMute,spawn,wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
@@ -308,7 +308,7 @@
       # Mouse Button Bindings
       # NONE mode key only work in ov mode
       mousebind=SUPER,btn_left,moveresize,curmove
-      mousebind=NONE,btn_middle,togglemaximizescreen,0
+      # mousebind=NONE,btn_middle,togglemaximizescreen,0
       mousebind=SUPER,btn_right,moveresize,curresize
       mousebind=NONE,btn_left,toggleoverview,1
       mousebind=NONE,btn_right,killclient,0
