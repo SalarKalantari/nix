@@ -34,20 +34,25 @@
 
   services.hardware.bolt.enable = true;
 
+  # Bluetooth (T440’s Intel BT works fine with this) 
+  hardware.enableRedistributableFirmware = true;
+  hardware.bluetooth.enable = true;
+  services.blueman.enable   = true;  # if you want a simple tray GUI
+
   #### Tools for brightness / volume keys (used from dwl keybindings)
   environment.systemPackages = with pkgs; [
     brightnessctl   # control /sys/class/backlight/*
     bolt
+    # Handy tools (bluetoothctl comes from bluez)
+    bluez
+    bluez-tools
     # pamixer         # (optional) volume control from the terminal
     # wireplumber
     # xbacklight
   ];
   #### Input devices / Bluetooth / misc ########################################
 
-  # Bluetooth (T440’s Intel BT works fine with this) 
-  hardware.enableRedistributableFirmware = true;
-  hardware.bluetooth.enable = true;
-  services.blueman.enable   = true;  # if you want a simple tray GUI
+
 
   # lid-close behaviour etc. (tweak to taste) 
   services.logind = {
