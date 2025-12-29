@@ -339,6 +339,7 @@
       # External USB-C monitors
       # monitorrule=DP-3,0.60,1,tile,0,1.5,-2560,0,3840,2160,60
       # monitorrule=DP-4,0.60,1,tile,0,1.5,-2560,0,3840,2160,60
+      monitorrule=DP-2,0.60,1,tile,0,1.5,1920,0,3840,2160,60
       monitorrule=DP-3,0.60,1,tile,0,1.5,1920,0,3840,2160,60
       monitorrule=Dp-4,0.60,1,tile,0,1.5,1920,0,3840,2160,60
 
