@@ -2,7 +2,7 @@
 { ... }:
 {
   services.kanshi = {
-    enable = false;
+    enable = true;
 
     # NEW format (replaces `profiles = { ... }`)
     settings = [
@@ -15,14 +15,14 @@
               status = "enable";
               mode = "3840x2160";
               scale = 1.5;
-              position = "0,0";
+              position = "1920,0";
             }
             {
               criteria = "eDP-1";
               status = "enable";
               mode = "1920x1080";
               scale = 1.0;
-              position = "320,1440";
+              position = "0,720";
             }
           ];
         };

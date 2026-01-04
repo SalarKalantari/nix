@@ -11,6 +11,7 @@
           "eDP-1"
           "HDMI-A-1"
           "HDMI-A-2"
+          "DP-2"
           "DP-3"
           "DP-4"
         ];
