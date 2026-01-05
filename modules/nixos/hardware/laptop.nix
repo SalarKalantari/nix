@@ -12,8 +12,11 @@
       CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
 
       # Optional: battery-saving charge thresholds for ThinkPad batteries
-      START_CHARGE_THRESH_BAT0 = 40;   # start charging when <= 40%
+      START_CHARGE_THRESH_BAT0 = 50;   # start charging when <= 40%
       STOP_CHARGE_THRESH_BAT0  = 80;   # stop charging when >= 80%
+
+      START_CHARGE_THRESH_BAT1 = 50;   # start charging when <= 40%
+      STOP_CHARGE_THRESH_BAT1  = 80;   # stop charging when >= 80%
 
     };
   };
