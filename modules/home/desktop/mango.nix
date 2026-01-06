@@ -333,22 +333,22 @@
       # monitorrule=eDP-1,0.55,1,tile,0,1,0,720,1920,1080,60
 
       # External HDMI monitors
-      # monitorrule=HDMI-A-1,0.60,1,tile,0,1.5,1920,0,3840,2160,60
-      # monitorrule=HDMI-A-2,0.60,1,tile,0,1.5,1920,0,3840,2160,60
+      monitorrule=HDMI-A-1,0.60,1,tile,0,1.5,-2560,-720,3840,2160,60
+      monitorrule=HDMI-A-2,0.60,1,tile,0,1.5,-2560,-720,3840,2160,60
       # monitorrule=DP-2,0.60,1,tile,0,1.5,-2560,0,3840,2160,60
 
       # External USB-C monitors
       # monitorrule=DP-3,0.60,1,tile,0,1.5,-2560,0,3840,2160,60
       # monitorrule=DP-4,0.60,1,tile,0,1.5,-2560,0,3840,2160,60
-      # monitorrule=DP-2,0.60,1,tile,0,1.5,1920,0,3840,2160,60
-      # monitorrule=DP-3,0.60,1,tile,0,1.5,1920,0,3840,2160,60
-      # monitorrule=Dp-4,0.60,1,tile,0,1.5,1920,0,3840,2160,60
+      monitorrule=DP-2,0.60,1,tile,0,1.5,1920,-720,3840,2160,60
+      monitorrule=DP-3,0.60,1,tile,0,1.5,1920,-720,3840,2160,60
+      monitorrule=Dp-4,0.60,1,tile,0,1.5,1920,-720,3840,2160,60
 
       # Switch Bindings (Lid)
       switchbind=fold,spawn,waylock
       switchbind=unfold,spawn,wlr-dpms on
 
-      exec-once=kanshi
+      # exec-once=kanshi
       exec-once=dbus-run-session waybar
     '';
 
